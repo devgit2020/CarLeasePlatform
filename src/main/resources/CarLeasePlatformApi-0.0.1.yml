@@ -1,0 +1,224 @@
+openapi: 3.0.1
+info:
+  title: Car-lease Platform API
+  description: This specification is for car lease api.
+  version: 1.0.0
+servers:
+  - url: localhost:9292
+paths:
+  /api/v1/auth/register:
+    post:
+      summary: Register a new user
+      operationId: register
+      requestBody:
+        description: Register user to the application
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterUserRequest'
+        required: true
+      responses:
+        200:
+          description: User Added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterUserResponse'
+
+  /api/v1/auth/authenticate:
+    post:
+      summary: Authenticate the user
+      operationId: authenticate
+      requestBody:
+        description: Authenticate the user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationRequest'
+        required: true
+      responses:
+        200:
+          description: Authenticate sucessfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationResponse'
+  /api/v1/auth/remove:
+    post:
+      summary: Delete the user
+      operationId: remove
+      requestBody:
+        description: Delete the user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthenticationRequest'
+        required: true
+      responses:
+        200:
+          description: User deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationResponse'
+
+  /api/v1/customer/create:
+    post:
+      summary: Create a new customer
+      operationId: createCustomer
+      requestBody:
+        description: create a customer
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerModel'
+        required: true
+      responses:
+        200:
+          description: customer added
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /api/v1/customer/update:
+    post:
+      summary: update existing customer info
+      operationId: updateCustomer
+      requestBody:
+        description: update the customer info
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerModel'
+        required: true
+      responses:
+        200:
+          description: customer info updated
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /api/v1/customer/customer:
+    get:
+      summary: retrieve the customer info
+      operationId: getCustomerByName
+      parameters:
+        - in: query
+          name: customer
+          schema:
+            type: string
+      responses:
+        200:
+          description: customer info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerModel'
+
+  /api/v1/customer/delete:
+    get:
+      summary: delete the customer
+      operationId: deleteCustomer
+      parameters:
+        - in: query
+          name: customer
+          schema:
+            type: string
+      responses:
+        200:
+          description: deleted the customer info
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /api/v1/car/save:
+    post:
+      summary: save new car into the applicaiton
+      operationId: saveNewCar
+      requestBody:
+        description: save new car
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CarModel'
+        required: true
+      responses:
+        200:
+          description: customer info updated
+          content:
+            application/json:
+              schema:
+                type: string
+
+components:
+  schemas:
+    RegisterUserRequest:
+      type: object
+      properties:
+        userName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+
+    RegisterUserResponse:
+      type: object
+      properties:
+        response:
+          type: string
+
+    AuthenticationRequest:
+      type: object
+      properties:
+        userName:
+          type: string
+        password:
+          type: string
+
+    AuthenticationResponse:
+      type: object
+      properties:
+        response:
+          type: string
+
+    CustomerModel:
+      type: object
+      properties:
+        name:
+          type: string
+        street:
+          type: string
+        houseNumber:
+          type: string
+        zipcode:
+          type: string
+        place:
+          type: string
+        email:
+          type: string
+        phone:
+          type: number
+
+    CarModel:
+      type: object
+      properties:
+        make:
+          type: string
+        model:
+          type: string
+        version:
+          type: string
+        noOfDoors:
+          type: number
+        c02Emission:
+          type: string
+        grossPrice:
+          type: number
+        nettPrice:
+          type: number
+
+
