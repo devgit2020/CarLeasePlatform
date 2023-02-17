@@ -1,4 +1,4 @@
-package com.car.lease;
+package com.carlease.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

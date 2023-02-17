@@ -1,4 +1,4 @@
-package com.car.lease;
+package com.carlease.api.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
