@@ -147,11 +147,31 @@ paths:
         required: true
       responses:
         200:
-          description: customer info updated
+          description: new car added
           content:
             application/json:
               schema:
                 type: string
+
+
+  /api/v1/lease:
+    post:
+      summary: lese details of a card
+      operationId: getLease
+      requestBody:
+        description: get leaserae of the cars
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaserateRequest'
+        required: true
+      responses:
+        200:
+          description: leaserate created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeaserateResponse'
 
 components:
   schemas:
@@ -203,6 +223,8 @@ components:
         phone:
           type: number
 
+
+
     CarModel:
       type: object
       properties:
@@ -220,5 +242,35 @@ components:
           type: number
         nettPrice:
           type: number
+
+    LeaserateRequest:
+      type: object
+      properties:
+        mileage:
+          type: number
+        duration:
+          type: number
+        intrestRate:
+          type: number
+        nettPrice:
+          type: number
+
+    LeaserateResponse:
+      type: object
+      properties:
+        mileage:
+          type: number
+        duration:
+          type: number
+        intrestRate:
+          type: number
+        nettPrice:
+          type: number
+        leaseRate:
+          type: number
+        car:
+          type: CarModel
+
+
 
 
