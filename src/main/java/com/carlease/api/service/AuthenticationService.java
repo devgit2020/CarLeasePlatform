@@ -13,6 +13,7 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -66,7 +67,7 @@ public class AuthenticationService {
    * or blank if it failed to authenticate
    */
 
-  public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
+  public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) throws AuthenticationException {
 
     authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(

@@ -5,7 +5,9 @@ import com.carlease.api.model.AuthenticationResponse;
 import com.carlease.api.model.RegisterUserRequest;
 import com.carlease.api.model.RegisterUserResponse;
 import com.carlease.api.service.AuthenticationService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
+@Getter
+@Setter
 public class UserResource {
 
   @Autowired
