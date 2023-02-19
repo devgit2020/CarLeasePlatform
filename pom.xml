@@ -200,22 +200,28 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
+							<typeMappings>
+								<typeMapping>Double=java.math.BigDecimal</typeMapping>
+							</typeMappings>
 							<inputSpec>
 								${project.basedir}/src/main/resources/CarLeasePlatformApi-0.0.1.yml
 							</inputSpec>
 							<generatorName>spring</generatorName>
 							<apiPackage>com.carlease.api.resource</apiPackage>
 							<modelPackage>com.carlease.api.model</modelPackage>
-							<supportingFilesToGenerate>
-								ApiUtil.java
-							</supportingFilesToGenerate>
 							<configOptions>
 								<sourceFolder>src/main/java/</sourceFolder>
 								<delegatePattern>true</delegatePattern>
 								<interfaceOnly>true</interfaceOnly>
 							</configOptions>
 							<validateSpec>false</validateSpec>
+							<typeMappings>
+								<typeMapping>java.math.BigDecimal=Double</typeMapping>
+							</typeMappings>
 							<skipValidateSpec>true</skipValidateSpec>
+							<generateApis>false</generateApis>
+							<generateApiTests>false</generateApiTests>
+							<generateSupportingFiles>false</generateSupportingFiles>
 						</configuration>
 					</execution>
 				</executions>

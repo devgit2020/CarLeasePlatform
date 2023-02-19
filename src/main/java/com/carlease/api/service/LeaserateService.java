@@ -7,6 +7,7 @@ import com.carlease.api.model.CarModel;
 import com.carlease.api.model.LeaserateRequest;
 import com.carlease.api.model.LeaserateResponse;
 import com.carlease.api.repository.CarRepository;
+import com.carlease.api.util.LeaseUtil;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,8 @@ public class LeaserateService {
 
     for (CarModel model : modelCar) {
       LeaserateResponse leaserateResponse = LeaseMapper.INSTANCE.copy(leaserateRequest);
-      leaserateResponse.setLeaseRate(BigDecimal.valueOf(5.4));
+      leaserateResponse.setLeaseRate(LeaseUtil.leaseCal(leaserateResponse.getMileage(),
+                            leaserateResponse.getDuration(),leaserateResponse.getIntrestRate(),leaserateResponse.getNettPrice()));
       leaserateResponse.setCar(model);
       leaseCar.add(leaserateResponse);
     }
