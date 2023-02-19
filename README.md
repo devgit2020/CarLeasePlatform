@@ -17,7 +17,7 @@ This application has 4 sub-domain as below and each sub-domain has individual ap
 ## <u>Prerequisites</u>
 To run the application on the desktop or laptop, need to have JRE version 11 and above.
 
-## <u>Installing</u>
+## <u>Install the application</u>
 Below are the steps download the application to your local desktop.
 
 
