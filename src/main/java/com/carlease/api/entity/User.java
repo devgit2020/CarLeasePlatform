@@ -33,17 +33,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Getter
 @Setter
 @Entity
-@Table(name = "_user")
+@Table(name = "users")
 public class User implements UserDetails {
 
-  public String userName;
-  public String password;
-  public String email;
+
   @Id
   @GeneratedValue
   private Integer id;
   @Enumerated(EnumType.STRING)
   private Role role;
+  public String userName;
+  public String password;
+  public String email;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {

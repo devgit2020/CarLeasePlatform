@@ -46,7 +46,9 @@ public class CustomerService {
       newCustomer.setId(optCustomer.get().getId());
     }
 
-    return repository.save(newCustomer).getId();
+    Customer savedOne = repository.save(newCustomer);
+
+    return savedOne.getId();
   }
   /**
    * This method deletes the customer from the table
